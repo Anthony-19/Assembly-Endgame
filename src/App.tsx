@@ -25,9 +25,10 @@ export default function AssemblyEndgame() {
         currentWord.split("").every((letter:string):boolean => guessedLetters.includes(letter))
     const isGameLost:boolean = wrongGuessCount >= numGuessesLeft
     const isGameOver:boolean = isGameWon || isGameLost
-    const lastGuessedLetter:string = guessedLetters[guessedLetters.length - 1]
-    const isLastGuessIncorrect:string | boolean = lastGuessedLetter && !currentWord.includes(lastGuessedLetter)
-
+    // const lastGuessedLetter:string = guessedLetters[guessedLetters.length - 1]
+    // const isLastGuessIncorrect:boolean = lastGuessedLetter && !currentWord.includes(lastGuessedLetter)
+    const lastGuessedLetter: string | undefined = guessedLetters[guessedLetters.length - 1]
+const isLastGuessIncorrect: boolean = lastGuessedLetter ? !currentWord.includes(lastGuessedLetter) : false
     // Static values
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
